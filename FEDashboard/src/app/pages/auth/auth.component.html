@@ -1,0 +1,80 @@
+<div class="auth-container">
+  <div class="auth-header">
+    <div class="auth-logo">
+      <img src="img/Logo.png" alt="logo" />
+    </div>
+    <div class="header-tabs">
+      <span
+        (click)="onAuthModeChange('Register', authForm)"
+        [class.active]="formState() === 'Register'"
+        >Register</span
+      >
+      <span
+        [class.active]="formState() === 'Login'"
+        (click)="onAuthModeChange('Login', authForm)"
+        >Login</span
+      >
+    </div>
+  </div>
+  <form class="auth-content" #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
+    <h3>
+      Welcome <span class="welcome">{{ welcomeMessage() }}</span>
+    </h3>
+
+    <div class="username form-control">
+      <i class="bi bi-person"></i>
+      <input
+        type="text"
+        name="username"
+        placeholder="Username"
+        autocomplete="username"
+        required
+        [(ngModel)]="username"
+        #user="ngModel"
+      />
+    </div>
+    <div class="password form-control">
+      <i class="bi bi-lock"></i>
+      <input
+        type="password"
+        name="password"
+        autocomplete="current-password"
+        placeholder="Password"
+        required
+        [(ngModel)]="password"
+        #pass="ngModel"
+      />
+    </div>
+    @if (formState() === 'Register') {
+    <div class="password form-control">
+      <i class="bi bi-lock"></i>
+      <input
+        type="password"
+        name="confirmPassword"
+        autocomplete="current-password"
+        placeholder="Confirm Password"
+        required
+        [(ngModel)]="confirmPassword"
+        #confirmPass="ngModel"
+      />
+    </div>
+    <div class="password form-control">
+      <i class="bi bi-person"></i>
+      <input
+        type="email"
+        name="Email"
+        placeholder="Email"
+        autocomplete="email"
+        required
+        email
+        [(ngModel)]="email"
+        #user="ngModel"
+      />
+    </div>
+    }
+    <button type="submit" class="form-button" [disabled]="!authForm.valid">
+      <span> {{ formState() === "Login" ? "Enter" : "Register" }}</span>
+      <i class="bi bi-chevron-right"></i>
+    </button>
+  </form>
+</div>

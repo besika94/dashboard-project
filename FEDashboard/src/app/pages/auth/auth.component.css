@@ -1,0 +1,139 @@
+:host {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(../../../../public/img/bg.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.auth-container {
+  min-width: 40%;
+}
+
+/* auth Header styles */
+.auth-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #0e1a35;
+  color: white;
+}
+
+.auth-logo {
+  padding-inline-start: 1rem;
+  max-width: 250px;
+  width: 100%;
+}
+
+.auth-logo img {
+  width: 100px;
+  display: block;
+}
+
+.header-tabs {
+  display: flex;
+  align-items: center;
+}
+
+.header-tabs span {
+  padding: 2rem;
+  position: relative;
+  cursor: pointer;
+}
+
+.header-tabs span::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 5px;
+  background-color: #5584ff;
+  transition: all 0.3s linear;
+}
+.header-tabs span.active::before {
+  width: 100%;
+}
+
+.header-tabs span:hover::before {
+  width: 100%;
+}
+
+/* auth form styles */
+
+.auth-content h3,
+.auth-content h3 span {
+  font-size: 1.5rem;
+  color: #8492af;
+  font-weight: 400;
+}
+
+.auth-content h3 span.welcome {
+  color: #5584ff;
+}
+.auth-content {
+  padding: 4rem 3rem;
+  background-color: #f6f7fa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.auth-content .form-control {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #8492af;
+  color: #8492af;
+  width: 100%;
+  max-width: 400px;
+}
+
+.form-control input {
+  color: #8492af;
+}
+
+.auth-content .form-control input::placeholder {
+  color: #8492af;
+}
+
+.auth-content .username {
+  margin-block: 2rem;
+  color: #8492af;
+}
+.auth-content .password {
+  margin-bottom: 2rem;
+  color: #8492af;
+}
+.auth-content .username i,
+.auth-content .password i {
+  color: #5584ff;
+}
+
+.form-button {
+  background-color: #5584ff;
+  color: white;
+  border-radius: 1.2rem;
+  padding: 0.5rem 2rem;
+  font-weight: 700;
+  display: flex;
+  max-width: 200px;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+.form-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.form-button i {
+  font-size: 0.6rem;
+  vertical-align: middle;
+}
+.form-button span {
+  margin-left: 30px;
+}

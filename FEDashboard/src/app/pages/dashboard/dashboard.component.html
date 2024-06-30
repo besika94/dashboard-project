@@ -1,0 +1,33 @@
+<div class="side-menu" [class.closed]="!menuOpen()">
+  <ul>
+    <li class="menu-item" routerLink="/dashboard">
+      <img src="img/Logo.png" alt="logo" width="100%" />
+    </li>
+    @for (item of menu(); track $index) {
+    <li [routerLink]="item.route" routerLinkActive="active" class="menu-item">
+      <i [class]="item.icon"></i>
+      @if (menuOpen()) {
+      <span>{{ item.lable }}</span>
+      }
+    </li>
+    }
+  </ul>
+</div>
+<header [class.full]="!menuOpen()">
+  <div class="menu-toggler" [class]="{ left: menuOpen(), right: !menuOpen() }">
+    <i (click)="menuOpen.set(!menuOpen())" class="bi bi-menu-down"></i>
+  </div>
+  <div class="user-actions">
+    <div class="header-btn">
+      <button><i class="bi bi-plus"></i> Add project</button>
+    </div>
+    <i class="bi bi-envelope-fill" style="margin-left: 20px"></i>
+    <i class="bi bi-bell-fill" style="margin-inline: 20px"></i>
+    <div class="user">
+      <img src="img/user.webp" alt="user" width="40px" height="40px" />
+    </div>
+  </div>
+</header>
+<div class="content" [class.full]="!menuOpen()">
+  <router-outlet />
+</div>
